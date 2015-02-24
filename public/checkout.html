@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Checkout Mirror Fashion</title>
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+
+<style>
+.navbar {
+	margin: 0;
+}
+.navbar .glyphicon {
+	color: white;
+}
+</style>
+<nav class="navbar navbar-inverse navbar-static-top">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Mirror Fashion</a>
+
+		<button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+			<span class="glyphicon glyphicon-align-justify"></span>
+		</button>
+	</div>
+	<ul class="nav navbar-nav collapse navbar-collapse">
+		<li><a href="sobre.html"><span class="glyphicon glyphicon-home"></span> Sobre</a></li>
+		<li><a><span class="glyphicon glyphicon-question-sign"></span> Ajuda</a></li>
+		<li><a data-toggle="modal" href="#faq"><span class="glyphicon glyphicon-list-alt"></span> Perguntas frequentes</a></li>
+		<li><a href="#"><span class="glyphicon glyphicon-bullhorn"></span> Entre em contato</a></li>
+	</ul>
+</nav>
+
+<div class="jumbotron">
+	<div class="container">
+		<h1>Ótima escolha!</h1>
+		<p>Obrigado por comprar na Mirror Fashion! Preencha seus dados para efetivar a compra.</p>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4 col-lg-3">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h2 class="panel-title">Sua compra</h2>
+				</div>
+				<div class="panel-body">
+					<img src="img/produtos/foto2-verde.png"
+						 alt=""
+						 class="img-thumbnail img-responsive hidden-xs">
+
+					<dl>
+						<dt>Produto</dt>
+						<dd></dd>
+
+						<dt>Cor</dt>
+						<dd>verde</dd>
+
+						<dt>Tamanho</dt>
+						<dd>42</dd>
+
+						<dt>Preço</dt>
+						<dd></dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+
+		<form class="col-sm-8 col-lg-9" method="POST" action="efetivar.php">
+			<style>
+			.form-control:invalid {
+				border: 1px solid #cc0000;
+			}
+			</style>
+			<div class="row">
+				<fieldset class="col-md-6">
+					<legend>Dados pessoais</legend>
+
+					<div class="form-group">
+						<label for="nome">Nome completo</label>
+						<input type="text" class="form-control" id="nome" name="nome" autofocus required>
+					</div>
+
+					<div class="form-group">
+						<label for="email">Email</label>
+
+						<div class="input-group">
+							<span class="input-group-addon">@</span>
+							<input type="email" class="form-control" id="email" placeholder="email@exemplo.com" name="email">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="cpf">CPF</label>
+						<input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" data-mask="999.999.999-99" required>
+					</div>
+
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="sim" name="spam" checked>
+							Quero receber spam da Mirror Fashion
+						</label>
+					</div>
+				</fieldset>
+
+				<fieldset class="col-md-6">
+					<legend>Cartão de crédito</legend>
+
+					<div class="form-group">
+						<label for="numero-cartao">Número - CVV</label>
+						<input type="text" class="form-control" id="numero-cartao" name="numero-cartao" placeholder="0000 0000 0000 0000 - 000" data-mask="9999 9999 9999 9999 - 999">
+					</div>
+
+					<div class="form-group">
+						<label for="validade-cartao">Validade</label>
+						<input type="month" class="form-control" id="validade-cartao" name="validade-cartao">
+					</div>
+
+					<div class="form-group">
+						<label for="bandeira-cartao">Bandeira</label>
+						<select id="bandeira-cartao" class="form-control" name="bandeira-cartao">
+							<option value="visa">VISA</option>
+							<option value="master">Master</option>
+							<option value="amex">Amex</option>
+						</select>
+					</div>
+				</fieldset>
+			</div>
+
+			<button type="submit" class="btn btn-primary btn-lg pull-right">
+				<span class="glyphicon glyphicon-thumbs-up"></span>
+				Confirmar Pedido
+			</button>
+		</form>
+	</div>
+</div>
+
+<div class="modal in" id="faq">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h3 class="modal-title">Perguntas frequentes</h3>
+			</div>
+
+			<div class="modal-body">
+				<h4>Posso pagar com boleto?</h4>
+				<p>Nope.</p>
+
+				<h4>Qual o prazo de entrega?</h4>
+				<p>28 min ou seu dinheiro de volta.</p>
+
+				<h4>Porque só posso comprar 1 produto por vez?</h4>
+				<p>Foco, meu caro, foco.</p>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/inputmask-plugin.js"></script>
+
+<script>
+	document.querySelector('input[type=email]').oninvalid = function() {
+
+		// remove mensagens de erro antigas
+		this.setCustomValidity("");
+
+		// reexecuta validação
+		if (!this.validity.valid) {
+
+			// se inválido, coloca mensagem de erro
+			this.setCustomValidity("Email inválido");
+		}
+	};
+</script>
+
+</body>
+</html>
