@@ -12,6 +12,9 @@
 	label[for=verde]:after {
 		background-color: #33CC66;
 	}
+	label[for=vinho]:after {
+		background-color: #CC2233;
+	}
 	label[for=rosa]:after {
 		background-color: #FF6666;
 	}
