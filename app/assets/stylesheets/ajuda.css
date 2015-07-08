@@ -1,0 +1,14 @@
+.ajuda h1 {
+	font-size: 26px;
+	font-weight: bold;
+}
+
+.ajuda h2 {
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 3em;
+}
+.ajuda p {
+	margin: 0.5em 0;
+	line-height: 1.5em;
+}

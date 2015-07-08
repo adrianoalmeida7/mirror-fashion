@@ -1,0 +1,73 @@
+<% content_for :css_extra do %>
+	<%= stylesheet_link_tag    "produto", :media => "all" %>
+<% end %>
+
+<div class="produto-back">
+	<div class="container">
+		<div class="produto">
+			<h1><%=@product.name%></h1>
+			<h2>por apenas R$ <%=@product.price%></h2>
+
+			<form action="checkout.html" method="POST">
+				<input type="hidden" name="id" value="2">
+
+				<fieldset class="cores">
+					<legend>Escolha a cor:</legend>
+
+					<input type="radio" name="cor" value="vinho" id="vinho" checked>
+					<label for="vinho">
+						<img src="<%=asset_path "produtos/#{@product.image_path}"%>" 
+						alt="<%="#{@product.name} - R${@product.price}"%>">
+					</label>
+
+
+				</fieldset>
+
+				<fieldset class="tamanhos">
+					<legend>Escolha o tamanho:</legend>
+
+					<input type="range" min="36" max="46" value="42" step="2" name="tamanho" id="tamanho">
+					<output for="tamanho" name="valortamanho">42</output>
+				</fieldset>
+
+				<input type="submit" class="comprar" value="Comprar">
+			</form>
+		</div>
+
+		<div class="detalhes">
+			<h2>Detalhes do produto</h2>
+
+			<%=raw @product.description%>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Característica</th>
+						<th>Detalhe</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Modelo</td>
+						<td><%=@product.model%></td>
+					</tr>
+					<tr>
+						<td>Material</td>
+						<td><%=@product.material%></td>
+					</tr>
+					<tr>
+						<td>Lavagem</td>
+						<td><%=@product.instructions%></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<script src="js/jquery.js"></script>
+<script>
+$('[name=tamanho]').change(function(){
+	$('[name=valortamanho]').text(this.value);
+});
+</script>
