@@ -30,7 +30,7 @@
 					<output for="tamanho" name="valortamanho">42</output>
 				</fieldset>
 
-				<input type="submit" class="comprar" value="Comprar">
+				<input type="submit" class="comprar" value="<% if params[:variation]%>Compre e parcele em 10x<%else%>Comprar<%end%>">
 			</form>
 		</div>
 
